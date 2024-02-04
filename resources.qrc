@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/pokemon">
+        <file>pokemon/pokedex.json</file>
+        <file>pokemon/games.json</file>
+    </qresource>
+</RCC>
