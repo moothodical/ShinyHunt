@@ -22,6 +22,7 @@ void HuntWindow::setWidgetValues()
     ui->gameLabel->setText(huntData.GetGame());
     ui->methodLabel->setText(huntData.GetMethod());
     ui->oddsLabel->setText(QString::number(huntData.GetOdds()));
+    ui->incrementSpinBox->setValue(1);
 }
 
 void HuntWindow::keyPressEvent(QKeyEvent *event)
@@ -35,6 +36,19 @@ void HuntWindow::keyPressEvent(QKeyEvent *event)
 
 
 void HuntWindow::on_incrementSpinBox_valueChanged(int arg1)
+{
+
+}
+
+
+
+void HuntWindow::on_targetButton_clicked()
+{
+
+}
+
+
+void HuntWindow::on_phaseButton_clicked()
 {
 
 }

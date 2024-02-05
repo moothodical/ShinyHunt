@@ -10,6 +10,17 @@ HuntData::HuntData(QString pokemonName, QString game, QString method, int odds) 
 
 }
 
+HuntData::HuntData(QString pokemonName, QString game, QString method, int odds, int encounters) :
+    pokemonName(pokemonName),
+    game(game),
+    method(method),
+    odds(odds),
+    currentEncounters(encounters)
+{
+
+}
+
+
 QString HuntData::GetPokemonName()
 {
     return pokemonName;

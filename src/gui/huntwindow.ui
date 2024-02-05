@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>599</width>
+    <width>312</width>
     <height>172</height>
    </rect>
   </property>
@@ -36,7 +36,7 @@
     <rect>
      <x>10</x>
      <y>40</y>
-     <width>211</width>
+     <width>161</width>
      <height>16</height>
     </rect>
    </property>
@@ -62,15 +62,15 @@
   <widget class="QLabel" name="encountersLabel">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>10</y>
-     <width>231</width>
-     <height>131</height>
+     <x>180</x>
+     <y>40</y>
+     <width>151</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>24</pointsize>
+     <pointsize>36</pointsize>
     </font>
    </property>
    <property name="text">
@@ -81,8 +81,8 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>70</y>
-     <width>211</width>
+     <y>60</y>
+     <width>161</width>
      <height>16</height>
     </rect>
    </property>
@@ -101,6 +101,32 @@
    </property>
    <property name="text">
     <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="targetButton">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>130</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Found target</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="phaseButton">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>130</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Found other</string>
    </property>
   </widget>
  </widget>

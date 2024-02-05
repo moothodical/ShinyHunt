@@ -13,6 +13,7 @@ private:
     int currentEncounters;
 public:
     HuntData(QString pokemonName, QString game, QString method, int odds);
+    HuntData(QString pokemonName, QString game, QString method, int odds, int encounters);
     QString GetPokemonName();
     QString GetGame();
     QString GetMethod();

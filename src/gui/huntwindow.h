@@ -28,6 +28,8 @@ protected:
     void keyPressEvent(QKeyEvent *event) override;
 private slots:
     void on_incrementSpinBox_valueChanged(int arg1);
+    void on_targetButton_clicked();
+    void on_phaseButton_clicked();
 };
 
 #endif // HUNTWINDOW_H
