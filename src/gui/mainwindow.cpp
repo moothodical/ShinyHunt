@@ -7,9 +7,7 @@
 #include <QString>
 #include <QTextStream>
 
-static QString userFilesPath = QCoreApplication::applicationDirPath() + "/userfiles/";
-static QString userFileName = "hunts.csv";
-static QString userHuntsFile = userFilesPath + userFileName;
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,6 +15,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     connect(this, &MainWindow::userFileParsed, this, &MainWindow::OnUserFileParsed);
+
+    const QString USER_FILE_PATH = QCoreApplication::applicationDirPath() + "/userfiles/";
+    const QString USER_FILE_NAME = "hunts.csv";
+    const QString USER_HUNTS_FILE = USER_FILE_PATH + USER_FILE_NAME;
 }
 
 MainWindow::~MainWindow()
@@ -36,7 +38,7 @@ void MainWindow::on_continueHuntButton_clicked()
     // Check if there is already a user supplied hunts.csv
     if (UserHuntsFileExists())
     {
-        ParseUserFile(userHuntsFile);
+        ParseUserFile(USER_HUNTS_FILE);
         return;
     }
 
@@ -57,14 +59,12 @@ void MainWindow::on_continueHuntButton_clicked()
 
 bool MainWindow::UserHuntsFileExists()
 {
-    QFile huntsFile(userHuntsFile);
-    bool exists = QFile::exists(userHuntsFile);
-    return exists;
+    return QFile::exists(USER_HUNTS_FILE);
 }
 
 bool MainWindow:: EnsureUserFilesDirExists()
 {
-    QDir userFilesDir(userFilesPath);
+    QDir userFilesDir(USER_FILE_PATH);
 
     if (!userFilesDir.exists())
     {
@@ -75,7 +75,7 @@ bool MainWindow:: EnsureUserFilesDirExists()
 
 bool MainWindow::CopyFileToUserDir(const QString& filePath)
 {
-    QString destinationPath = userFilesPath + QFileInfo(filePath).fileName();
+    QString destinationPath = USER_FILE_PATH + QFileInfo(filePath).fileName();
     QFile sourceFile(filePath);
     QFile destinationFile(destinationPath);
     return sourceFile.copy(destinationPath);

@@ -23,6 +23,10 @@ private:
     bool CopyFileToUserDir(const QString& filePath);
     QList<QSharedPointer<HuntData>> ParseUserFile(const QString& filePath);
 public:
+    const QString USER_FILE_PATH;
+    const QString USER_FILE_NAME;
+    const QString USER_HUNTS_FILE;
+public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
