@@ -1,20 +1,19 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "newhuntwindow.h"
+#include "showhunts.h"
 
 #include <QFileDialog>
 #include <QFile>
 #include <QString>
 #include <QTextStream>
 
-
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect(this, &MainWindow::userFileParsed, this, &MainWindow::OnUserFileParsed);
+    connect(this, &MainWindow::UserFileParsed, this, &MainWindow::OnUserFileParsed);
 
     const QString USER_FILE_PATH = QCoreApplication::applicationDirPath() + "/userfiles/";
     const QString USER_FILE_NAME = "hunts.csv";
@@ -38,7 +37,8 @@ void MainWindow::on_continueHuntButton_clicked()
     // Check if there is already a user supplied hunts.csv
     if (UserHuntsFileExists())
     {
-        ParseUserFile(USER_HUNTS_FILE);
+        QList<QSharedPointer<HuntData>> hunts = ParseUserFile(USER_HUNTS_FILE);
+        emit UserFileParsed(hunts);
         return;
     }
 
@@ -108,13 +108,15 @@ QList<QSharedPointer<HuntData>> MainWindow::ParseUserFile(const QString& filePat
         }
         huntsFile.close();
       }
-    emit userFileParsed();
     return hunts;
 }
 
-void MainWindow::OnUserFileParsed()
+void MainWindow::OnUserFileParsed(QList<QSharedPointer<HuntData>> hunts)
 {
     qDebug () << "You have reached the part where the user file signal has parsed";
+
+    ShowHunts *showHunt = new ShowHunts();
+    showHunt->show();
 }
 
 

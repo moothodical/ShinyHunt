@@ -31,13 +31,13 @@ public:
     ~MainWindow();
 
 signals:
-    void userFileParsed();
-    void huntChosen();
+    void UserFileParsed(QList<QSharedPointer<HuntData>> hunts);
+    void HuntChosen();
 
 private slots:
     void on_newHuntButton_clicked();
     void on_continueHuntButton_clicked();
-    void OnUserFileParsed();
+    void OnUserFileParsed(QList<QSharedPointer<HuntData>> hunts);
 
 private:
     Ui::MainWindow *ui;
